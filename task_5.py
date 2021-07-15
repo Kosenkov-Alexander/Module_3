@@ -6,9 +6,12 @@
 # Если специальный символ введен после нескольких чисел, то вначале нужно добавить сумму этих чисел к полученной ранее сумме и после этого завершить программу.
 
 def sum_func():
-    loop = True
+    '''
+    Функция выводит сумму введенных чисел
+    :return: string, возвращает общую сумму со всех итераций
+    '''
     overall_sum = 0
-    while loop:
+    while True:
         user_numbers = input('Введите строку чисел: ')
         split_numbers = user_numbers.split()
         i = 0
@@ -16,11 +19,9 @@ def sum_func():
             try:
                 split_numbers[i] = int(item)
             except ValueError:
-                loop = False
-                break
+                return print(f'Общая сумма: {overall_sum}')
             overall_sum += split_numbers[i]
             i += 1
 
         print(f'Общая сумма: {overall_sum}')
-
 sum_func()
